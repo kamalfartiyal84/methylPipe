@@ -746,16 +746,17 @@ profileDNAmetBin <- function(GenoRanges, Sample,
     col_names <- c(1:Nbins)
     binmC <- signif(binmC, 3)
     colnames(binmC) <- col_names
-    #rownames(binmC) <- NULL
+    rownames(binmC) <- NULL
     binC <- signif(binC, 3)
     colnames(binC) <- col_names
-    #rownames(binC) <- NULL
+    rownames(binC) <- NULL
     binrC <- signif(binrC, 3)
     colnames(binrC) <- col_names
-    #rownames(binrC) <- NULL
+    rownames(binrC) <- NULL
     binscore <- matrix(NA, nrow(binmC),
                        ncol(binmC), dimnames=list(row_names, col_names))
-    rownames(GenoRanges) <- row_names
+    rownames(binscore) <- NULL
+    #rownames(GenoRanges) <- row_names
                                         # saving chr results
     Object <- new("GEcollection",
                   SummarizedExperiment(assays=list(binmC=binmC,

@@ -632,7 +632,7 @@ getCposDensity<- function(GenoRanges, Cpos, nbins) {
     Nbins <- nbins
     for(i in 1:length(Cpos)) {
         widths <- rep(round(allwidths[i]/Nbins), Nbins)
-        if(is.na(Cpos[[i]]))
+        if(all(is.na(Cpos[[i]])))
           Cpos[[i]] <- rep(0,nbins)
         else
           Cpos[[i]] <- sapply(Cpos[[i]], length)/widths
@@ -710,7 +710,7 @@ profileDNAmetBin <- function(GenoRanges, Sample,
     Cpos <- getCpos(GenoRanges= GenoRanges,
                     seqContext= sub('m','', mcCLASS),
                     org= Sample@org, nbins=Nbins)
-    suppressWarnings(CposD <- getCposDensity(GenoRanges, Cpos=Cpos, nbins=Nbins))
+    CposD <- getCposDensity(GenoRanges, Cpos=Cpos, nbins=Nbins)
     binC <- matrix(unlist(CposD), length(CposD), Nbins, byrow=T)
 
                                         # reversing for minus strand if strand is defined

@@ -1,3 +1,11 @@
+CHANGES IN VERSION 1.17.1
+------------------------
+
+o updated or fixed the following functions:
+
+   + getCposDensity : fixed the warning message in checking for NA in a list 
+
+
 CHANGES IN VERSION 1.4.3
 ------------------------
 
